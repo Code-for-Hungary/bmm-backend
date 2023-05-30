@@ -15,6 +15,9 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
+        $resp = [
+            'success' => false
+        ];
         $eventgenerator = Eventgenerator::find($request->input('eventgenerator'));
         if ($eventgenerator) {
             $event = new Event();
@@ -28,11 +31,13 @@ class SubscriptionController extends Controller
             $subscription->email = $request->string('email')->trim();
             $subscription->active = true;
             $subscription->push();
+
+            $resp['success'] = true;
         }
+        return response()->json($resp);
     }
 
     public function confirm(Subscription $subscription)
     {
-
     }
 }
