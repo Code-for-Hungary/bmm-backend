@@ -61,8 +61,10 @@ class SubscriptionController extends Controller
 
     public function confirm(Subscription $subscription)
     {
-        $subscription->confirm();
-        $subscription->save();
+        if (!$subscription->confirmed) {
+            $subscription->confirm();
+            $subscription->save();
+        }
         return response()->json(['success' => true]);
     }
 }
