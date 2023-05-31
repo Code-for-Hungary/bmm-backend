@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Subscription
@@ -46,5 +47,11 @@ class Subscription extends Model
     public function event()
     {
         return $this->belongsTo(Event::class);
+    }
+
+    public function confirm()
+    {
+        $this->confirmed = true;
+        $this->confirmation_date = Carbon::now();
     }
 }

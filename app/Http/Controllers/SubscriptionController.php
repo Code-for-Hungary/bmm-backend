@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SubscriptionConfirmationRequest;
 use App\Models\Event;
 use App\Models\Eventgenerator;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionController extends Controller
 {
@@ -36,7 +39,10 @@ class SubscriptionController extends Controller
             $subscription->event()->associate($event);
             $subscription->email = $request->string('email')->trim();
             $subscription->active = true;
+            $subscription->confirmation_start = Carbon::now();
             $subscription->push();
+
+            Mail::to($subscription->email->toString())->send(new SubscriptionConfirmationRequest($subscription));
 
             $resp['success'] = true;
         }
@@ -45,5 +51,8 @@ class SubscriptionController extends Controller
 
     public function confirm(Subscription $subscription)
     {
+        $subscription->confirm();
+        $subscription->save();
+        return response()->json(['success' => true]);
     }
 }
