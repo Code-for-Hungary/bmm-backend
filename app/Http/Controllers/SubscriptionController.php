@@ -21,6 +21,16 @@ class SubscriptionController extends Controller
         $resp = [
             'success' => false
         ];
+
+        if (config('bmm.restricted_to_email') &&
+            !in_array(
+                $request->string('email')->trim()->toString(),
+                explode(';', config('bmm.restricted_to_email'))
+            )
+        ) {
+            return response()->json($resp);
+        }
+
         $eventgenerator = Eventgenerator::find($request->input('eventgenerator'));
         if ($eventgenerator) {
             $event = $eventgenerator->event()
