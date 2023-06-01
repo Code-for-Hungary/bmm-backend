@@ -25,6 +25,6 @@ Route::get('/eventgenerators', [EventgeneratorController::class, 'index']);
 Route::get('/eventgenerators/{eventgenerator}', [EventgeneratorController::class, 'show']);
 
 Route::post('/subscriptions', [SubscriptionController::class, 'store']);
-Route::get('/subscriptions/confirm/{subscription}', [SubscriptionController::class, 'confirm'])->name('confirmation');
+Route::post('/subscriptions/confirm/{subscription}', [SubscriptionController::class, 'confirm'])->name('confirmation');
 
 Route::get('/events/bygenerator/{eventgenerator}', [EventController::class, 'indexByGenerator']);
