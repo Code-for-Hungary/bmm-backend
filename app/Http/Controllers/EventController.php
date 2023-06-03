@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\EventResource;
+use App\Mail\SubscriptionNotification;
+use App\Models\Event;
 use App\Models\Eventgenerator;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     public function indexByGenerator(Eventgenerator $eventgenerator)
     {
@@ -25,35 +22,26 @@ class EventController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function notify(Request $request, Event $event)
     {
-        //
+        $eventgenerator = Eventgenerator::find($request->get('uuid'));
+        if (!$eventgenerator) {
+            return response('Unauthorized', 401);
+        }
+        if ($event->eventgenerator->id !== $eventgenerator->id) {
+            return response('Bad Request', 400);
+        }
+        
+        $eventContent = $request->string('content')->trim()->toString();
+        $subs = $event->subscriptions()
+            ->where('active', true)
+            ->get();
+
+        /** @var Subscription $sub */
+        foreach ($subs as $sub) {
+            Mail::to($sub->email)->send(new SubscriptionNotification($sub, $eventContent));
+        }
+        return response('OK', 200);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

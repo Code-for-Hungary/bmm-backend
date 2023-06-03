@@ -37,7 +37,7 @@ class Event extends Model
     protected $keyType = 'string';
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function subscription()
+    public function subscriptions()
     {
         return $this->hasMany(Subscription::class);
     }
