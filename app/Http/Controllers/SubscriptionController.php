@@ -48,7 +48,6 @@ class SubscriptionController extends Controller
             $subscription = new Subscription();
             $subscription->event()->associate($event);
             $subscription->email = $request->string('email')->trim();
-            $subscription->active = true;
             $subscription->confirmation_start = Carbon::now();
             $subscription->push();
 

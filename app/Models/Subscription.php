@@ -51,6 +51,7 @@ class Subscription extends Model
 
     public function confirm()
     {
+        $this->active = true;
         $this->confirmed = true;
         $this->confirmation_date = Carbon::now();
     }
