@@ -44,6 +44,9 @@ class EventgeneratorController extends Controller
         $eventgenerator->active = true;
         $eventgenerator->save();
 
+        $resp['uuid'] = $eventgenerator->id;
+        $resp['success'] = true;
+        
         return response()->json($resp);
     }
 
