@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Event> $event
  * @property-read int|null $event_count
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator newQuery()
@@ -24,6 +23,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereUpdatedAt($value)
+ * @property string|null $description
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Event> $event
+ * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereDescription($value)
  * @mixin \Eloquent
  */
 class Eventgenerator extends Model

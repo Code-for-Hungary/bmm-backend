@@ -29,4 +29,23 @@ class EventgeneratorController extends Controller
         return new EventgeneratorResource($eventgenerator);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $resp = [
+            'success' => false
+        ];
+
+        $eventgenerator = new Eventgenerator();
+        $eventgenerator->name = $request->string('name')->trim();
+        $eventgenerator->description = $request->string('description')->trim();
+        $eventgenerator->active = true;
+        $eventgenerator->save();
+
+        return response()->json($resp);
+    }
+
+
 }
