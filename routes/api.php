@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/eventgenerators', [EventgeneratorController::class, 'index']);
 Route::get('/eventgenerators/{eventgenerator}', [EventgeneratorController::class, 'show']);
+Route::post('/eventgenerators', [EventgeneratorController::class, 'store']);
 
 Route::post('/subscriptions', [SubscriptionController::class, 'store']);
 Route::post('/subscriptions/confirm/{subscription}', [SubscriptionController::class, 'confirm'])->name('confirmation');
