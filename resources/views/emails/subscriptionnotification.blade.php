@@ -8,6 +8,6 @@
 <h2>Esemény történt a Bulletin Monitoron!</h2>
 <p>Az esemény kiváltója: "{{ $eventgenerator }}"</p>
 <p>Ezt figyeltük: "{{ $parameter }}"</p>
-<p>Az esemény tartalma: {{ $eventcontent }}</p>
+<p>Az esemény tartalma: {!! $eventcontent !!}</p>
 </body>
 </html>
