@@ -30,7 +30,7 @@ class SubscriptionNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Értesítés',
+            subject: 'Figyusz! Találat a ' . $this->subscription->event->parameters . ' kulcsszavadra!',
         );
     }
 
