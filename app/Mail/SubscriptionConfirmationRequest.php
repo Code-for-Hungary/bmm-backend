@@ -29,7 +29,7 @@ class SubscriptionConfirmationRequest extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Feliratkozás megerősítése',
+            subject: 'Figyusz! feliratkozás megerősítése',
         );
     }
 
