@@ -57,6 +57,7 @@ class SubscriptionNotification extends Mailable
                 'parameter' => $this->subscription->event->parameters,
                 'eventtype' => $this->subscription->event->type,
                 'eventcontent' => $this->eventContent,
+                'unsubscribeurl' => config('bmm.unsubscribe_url') . '?s=' . $this->subscription->id,
             ]
         );
     }

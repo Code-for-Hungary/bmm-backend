@@ -16,9 +16,7 @@
     @endswitch
 </p>
 <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu">figyusz@k-monitor.hu</a> e-mail címen.</p>
-<p>
 <div>Üdvözlettel,</div>
 <div>K-Monitor</div>
-</p>
 </body>
 </html>

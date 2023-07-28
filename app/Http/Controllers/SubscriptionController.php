@@ -80,4 +80,11 @@ class SubscriptionController extends Controller
         }
         return response()->json(['success' => true]);
     }
+
+    public function unsubscribe(Subscription $subscription)
+    {
+        $subscription->active = false;
+        $subscription->save();
+        return response()->json(['success' => true]);
+    }
 }
