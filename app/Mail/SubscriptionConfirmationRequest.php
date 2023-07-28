@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Models\Subscription;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -43,6 +42,7 @@ class SubscriptionConfirmationRequest extends Mailable
             with: [
                 'eventgenerator' => $this->subscription->event->eventgenerator->name,
                 'parameter' => $this->subscription->event->parameters,
+                'eventtype' => $this->subscription->event->type,
                 'confirmurl' => config('bmm.confirmation_frontend_url') . '?s=' . $this->subscription->id
                 //route('confirmation', ['subscription' => $this->subscription->id]),
             ]

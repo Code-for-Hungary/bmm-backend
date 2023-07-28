@@ -29,8 +29,19 @@ class SubscriptionNotification extends Mailable
      */
     public function envelope(): Envelope
     {
+        switch ($this->subscription->event->type) {
+            case 1:
+                $subject = 'Figyusz! Találat a "' . $this->subscription->event->parameters . '" kulcsszavadra!';
+                break;
+            case 2:
+                $subject = 'Figyusz! Új adat a "' . $this->subscription->event->eventgenerator->name . '"-ben.';
+                break;
+            default:
+                $subject = 'Figyusz!';
+                break;
+        }
         return new Envelope(
-            subject: 'Figyusz! Találat a "' . $this->subscription->event->parameters . '" kulcsszavadra!',
+            subject: $subject,
         );
     }
 
@@ -44,6 +55,7 @@ class SubscriptionNotification extends Mailable
             with: [
                 'eventgenerator' => $this->subscription->event->eventgenerator->name,
                 'parameter' => $this->subscription->event->parameters,
+                'eventtype' => $this->subscription->event->type,
                 'eventcontent' => $this->eventContent,
             ]
         );

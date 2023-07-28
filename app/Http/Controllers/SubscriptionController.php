@@ -33,15 +33,29 @@ class SubscriptionController extends Controller
 
         $eventgenerator = Eventgenerator::find($request->input('eventgenerator'));
         if ($eventgenerator) {
-            $event = $eventgenerator->event()
-                ->where('parameters', $request->string('parameter')->trim())
-                ->where('active', true)
-                ->first();
+            $eventtype = $request->integer('eventtype');
+            switch ($eventtype) {
+                case 1:
+                    $event = $eventgenerator->event()
+                        ->where('parameters', $request->string('parameter')->trim())
+                        ->where('type', $eventtype)
+                        ->where('active', true)
+                        ->first();
+                    break;
+                case 2:
+                    $event = $eventgenerator->event()
+                        ->where('type', $eventtype)
+                        ->where('active', true)
+                        ->first();
+            }
             if (!$event) {
                 $event = new Event();
             }
             $event->eventgenerator()->associate($eventgenerator);
-            $event->parameters = $request->string('parameter')->trim();
+            if ($request->string('parameter')->trim()->lower()->toString() !== 'null') {
+                $event->parameters = $request->string('parameter')->trim();
+            }
+            $event->type = $eventtype;
             $event->active = true;
             $event->save();
 

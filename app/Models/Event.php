@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedAt($value)
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Subscription> $subscriptions
  * @property-read int|null $subscriptions_count
+ * @property int $type
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereType($value)
  * @mixin \Eloquent
  */
 class Event extends Model
