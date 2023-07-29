@@ -1,12 +1,4 @@
 <style>
-    :root {
-        --brand-color: #46009e;
-        --secondary-color: #FF3366;
-        --light-font-color: #F9F6F6;
-        --default-radius: 25px;
-        --gutter: 1rem;
-        accent-color: var(--brand-color);
-    }
 
     @font-face {
         font-family: Faune;
@@ -55,7 +47,7 @@
     }
 
     html {
-        color: var(--brand-color);
+        color: #46009e;
         background-color: #F9F6F6;
         font-family: 'Faune', Arial, sans-serif;
         font-size: 20px;
@@ -96,8 +88,8 @@
         font-size: 0.8rem;
         margin-top: 5vh;
         min-height: 14vh;
-        background-color: var(--secondary-color);
-        color: var(--light-font-color);
+        background-color: #FF3366;
+        color: #F9F6F6;
     }
 
     .bmm-footer-grid {
@@ -147,7 +139,7 @@
     }
 
     .highlighted-text {
-        color: var(--secondary-color);
+        color: #FF3366;
     }
 
     .center-in-flex {
@@ -177,6 +169,6 @@
 
     .bmm-event-separator {
         width: 100%;
-        border-bottom: var(--secondary-color) solid 1px;
+        border-bottom: #FF3366 solid 1px;
     }
 </style>
