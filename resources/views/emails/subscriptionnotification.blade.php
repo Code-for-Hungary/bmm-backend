@@ -11,14 +11,22 @@
 @switch($eventtype)
     @case(1)
         <h3>Ez itt a Figyusz! adatbázis figyelő. Az általad megadott kulcszóra találat érkezett.</h3>
-        <p class="bmm-label">A találat helye: </p><p class="bmm-data">"{{ $eventgenerator }}"</p>
-        <p class="bmm-label">Kulcsszó: </p><p class="bmm-data">"{{ $parameter }}"</p>
-        <div>A találat tartalma: {!! $eventcontent !!}</div>
+        <div>
+            <span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span>
+            <span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span>
+        </div>
+        <div>
+            <span class="bmm-label">A találat tartalma: </span>{!! $eventcontent !!}
+        </div>
         @break
     @case(2)
         <h3>Ez itt a Figyusz! adatbázis figyelő. A figyelt adatbázisba új adat érkezett.</h3>
-        <p class="bmm-label">A találat helye: </p><p class="bmm-data">"{{ $eventgenerator }}"</p>
-        <div>A találat tartalma: {!! $eventcontent !!}</div>
+        <div>
+            <span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span>
+        </div>
+        <div>
+            <span class="bmm-label">A találat tartalma: </span>{!! $eventcontent !!}
+        </div>
         @break
 @endswitch
 <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu">figyusz@k-monitor.hu</a> e-mail címen.</p>
