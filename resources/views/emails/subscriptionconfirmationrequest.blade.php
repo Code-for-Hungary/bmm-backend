@@ -6,21 +6,25 @@
     @include('shared.style')
 </head>
 <body>
-@include('shared.header')
-<h3>Szia!</h3>
-<h3>Ez itt a Figyusz! adatbázis figyelő.</h3>
-<p>Kérjük, <a href="{{ $confirmurl }}">ide kattintva erősítsd meg</a> a feliratkozásodat
-    @switch($eventtype)
-        @case(1)
-            a "{{ $parameter }}" kulcsszóra a "{{ $eventgenerator }}" adatbázisból.
-            @break
-        @case(2)
-            a "{{ $eventgenerator }}" adatbázis frissülésére.
-    @endswitch
-</p>
-<p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu">figyusz@k-monitor.hu</a> e-mail címen.</p>
-<div>Üdvözlettel,</div>
-<div>K-Monitor</div>
-@include('shared.footer')
+<div class="email">
+    @include('shared.header')
+    <div class="padding">
+        <h3>Szia!</h3>
+        <h3>Ez itt a Figyusz! adatbázis figyelő.</h3>
+        <p>Kérjük, <a href="{{ $confirmurl }}">ide kattintva erősítsd meg</a> a feliratkozásodat
+            @switch($eventtype)
+                @case(1)
+                    a "{{ $parameter }}" kulcsszóra a "{{ $eventgenerator }}" adatbázisból.
+                    @break
+                @case(2)
+                    a "{{ $eventgenerator }}" adatbázis frissülésére.
+            @endswitch
+        </p>
+        <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu">figyusz@k-monitor.hu</a> e-mail címen.</p>
+        <div>Üdvözlettel,</div>
+        <div>K-Monitor</div>
+    </div>
+    @include('shared.footer')
+</div>
 </body>
 </html>

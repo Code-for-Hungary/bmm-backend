@@ -58,7 +58,7 @@
         font-size: 20px;
         line-height: 1.3;
     }
-    
+
     h3 {
         font-size: 1.4rem;
         font-weight: 700;
@@ -176,5 +176,9 @@
     .bmm-event-separator {
         width: 100%;
         border-bottom: #FF3366 solid 1px;
+    }
+
+    .padding {
+        padding: 1rem;
     }
 </style>
