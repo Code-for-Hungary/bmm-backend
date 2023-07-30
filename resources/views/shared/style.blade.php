@@ -1,4 +1,9 @@
 <style>
+    .bmm-header {
+        background-image: url("https://figyusz.k-monitor.hu/img/header-desktop.svg");
+    }
+</style>
+<style>
 
     @font-face {
         font-family: Faune;
@@ -65,7 +70,6 @@
     }
 
     .bmm-header {
-        background-image: url("https://figyusz.k-monitor.hu/img/header-desktop.svg");
         background-position-y: bottom;
         background-size: cover;
         min-height: 19vh;
