@@ -34,7 +34,7 @@
                 <img
                     alt="C4HU"
                     class="bmm-footer-logo"
-                    style="width: 30vw;"
+                    style="width: 101px;margin: 10px 0 0 10px;"
                     src="https://figyusz.k-monitor.hu/img/c4hu-logo.png"
                 >
             </a>
@@ -50,7 +50,7 @@
                 <img
                     alt="K-Monitor"
                     class="bmm-footer-logo"
-                    style="width: 30vw;"
+                    style="width: 101px;margin: 10px 0 0 10px;"
                     src="https://figyusz.k-monitor.hu/img/kmonitor-white.png"
                 >
             </a>
@@ -58,6 +58,7 @@
         <div
             class="bmm-adatkezelesi"
             style="
+                margin: 10px 0 0 10px;
                 grid-area: adatkezelesi;
                 align-self: center;
                 justify-self: center;
