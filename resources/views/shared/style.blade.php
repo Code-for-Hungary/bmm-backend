@@ -122,7 +122,7 @@
     }
 
     .bmm-adatkezelesi {
-        margin: 10px 0 0 10px;
+        margin: 10px 0 10px 10px;
         grid-area: adatkezelesi;
         align-self: center;
         justify-self: center;
