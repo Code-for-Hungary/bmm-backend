@@ -51,14 +51,14 @@
         box-sizing: border-box;
     }
 
-    body {
+    .email {
         color: #46009e;
         background-color: #F9F6F6;
         font-family: 'Faune', Arial, sans-serif;
         font-size: 20px;
         line-height: 1.3;
     }
-
+    
     h3 {
         font-size: 1.4rem;
         font-weight: 700;
