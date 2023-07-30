@@ -35,7 +35,7 @@
                     alt="C4HU"
                     class="bmm-footer-logo"
                     style="width: 30vw;"
-                    src="https://figyusz.k-monitor.hu/img/c4hu-logo.svg"
+                    src="https://figyusz.k-monitor.hu/img/c4hu-logo.png"
                 >
             </a>
         </div>
