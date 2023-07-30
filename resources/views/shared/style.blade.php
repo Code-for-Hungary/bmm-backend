@@ -51,7 +51,7 @@
         box-sizing: border-box;
     }
 
-    html {
+    body {
         color: #46009e;
         background-color: #F9F6F6;
         font-family: 'Faune', Arial, sans-serif;
