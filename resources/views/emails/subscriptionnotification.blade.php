@@ -12,7 +12,7 @@
         <h3>Szia!</h3>
         @switch($eventtype)
             @case(1)
-                <h3>Ez itt a Figyusz! adatbázis figyelő. Az általad megadott kulcszóra találat érkezett.</h3>
+                <h3>Ez itt a Figyusz! adatbázis figyelő. Az általad megadott kulcsszóra találat érkezett.</h3>
                 <div>
                     <div><span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span></div>
                     <div><span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span></div>
