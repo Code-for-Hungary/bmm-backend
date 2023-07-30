@@ -117,10 +117,12 @@
     }
 
     .bmm-footer-logo {
-        width: 30vw;
+        width: 101px;
+        margin: 10px 0 0 10px;
     }
 
     .bmm-adatkezelesi {
+        margin: 10px 0 0 10px;
         grid-area: adatkezelesi;
         align-self: center;
         justify-self: center;
