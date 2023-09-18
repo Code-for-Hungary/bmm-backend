@@ -37,7 +37,7 @@
         <div>Üdvözlettel,</div>
         <div>K-Monitor</div>
         <p>
-            <a href="{{ $unsubscribeurl }}">Leiratkozáshoz klikkelj ide.</a>
+            <a href="{!! $unsubscribeurl !!}">Leiratkozáshoz klikkelj ide.</a>
         </p>
     </div>
     @include('shared.footer')
