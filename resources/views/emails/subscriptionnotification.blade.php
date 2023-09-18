@@ -15,7 +15,7 @@
                     <div><span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span></div>
                     <div><span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span></div>
                 </div>
-                <div class="bmm-event-separator"></div>
+                <div class="bmm-event-separator">&nbsp;</div>
                 <div>
                     {!! $eventcontent !!}
                 </div>
@@ -25,7 +25,7 @@
                 <div>
                     <span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span>
                 </div>
-                <div class="bmm-event-separator"></div>
+                <div class="bmm-event-separator">&nbsp;</div>
                 <div>
                     {!! $eventcontent !!}
                 </div>
