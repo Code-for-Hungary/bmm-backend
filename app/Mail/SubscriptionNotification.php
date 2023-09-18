@@ -51,8 +51,6 @@ class SubscriptionNotification extends Mailable
      */
     public function content(): Content
     {
-        Log::debug(config('bmm.unsubscribe_url'));
-        Log::debug(config('bmm.confirmation_frontend_url'));
         return new Content(
             view: 'emails.subscriptionnotification',
             with: [
