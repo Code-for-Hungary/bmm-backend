@@ -34,7 +34,7 @@ class SubscriptionNotification extends Mailable
                 $subject = 'Figyusz! Találat a "' . $this->subscription->event->parameters . '" kulcsszavadra!';
                 break;
             case 2:
-                $subject = 'Figyusz! Új adat a "' . $this->subscription->event->eventgenerator->name . '"-ben.';
+                $subject = 'Figyusz! Új adat: ' . $this->subscription->event->eventgenerator->name;
                 break;
             default:
                 $subject = 'Figyusz!';
