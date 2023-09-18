@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @include('shared.style')
 </head>
 <body>
 <div class="email">
-    @include('shared.header')
     <div class="padding">
         <h3>Szia!</h3>
         @switch($eventtype)
