@@ -41,12 +41,13 @@ class EventgeneratorController extends Controller
         $eventgenerator = new Eventgenerator();
         $eventgenerator->name = $request->string('name')->trim();
         $eventgenerator->description = $request->string('description')->trim();
+        $eventgenerator->extrainfo = $request->string('extrainfo')->trim();
         $eventgenerator->active = true;
         $eventgenerator->save();
 
         $resp['uuid'] = $eventgenerator->id;
         $resp['success'] = true;
-        
+
         return response()->json($resp);
     }
 

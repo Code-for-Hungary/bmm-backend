@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Figyusz értesítő</title>
 </head>
 <body>
 <div class="email">
@@ -14,6 +15,9 @@
                 <div>
                     <div><span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span></div>
                     <div><span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span></div>
+                    @if($extrainfo)
+                        <div><span class="bmm-label">{{ $extrainfo }}</span></div>
+                    @endif
                 </div>
                 <div class="bmm-event-separator">&nbsp;</div>
                 <div>

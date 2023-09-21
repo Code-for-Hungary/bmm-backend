@@ -55,6 +55,7 @@ class SubscriptionNotification extends Mailable
             view: 'emails.subscriptionnotification',
             with: [
                 'eventgenerator' => $this->subscription->event->eventgenerator->name,
+                'extrainfo' => $this->subscription->event->eventgenerator->extrainfo,
                 'parameter' => $this->subscription->event->parameters,
                 'eventtype' => $this->subscription->event->type,
                 'eventcontent' => $this->eventContent,

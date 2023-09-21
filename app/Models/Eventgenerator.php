@@ -26,6 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $description
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Event> $event
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereDescription($value)
+ * @property string|null $extrainfo
+ * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereExtrainfo($value)
  * @mixin \Eloquent
  */
 class Eventgenerator extends Model
