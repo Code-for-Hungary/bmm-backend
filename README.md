@@ -1,6 +1,6 @@
 # Bulletin Monitor backend
 
-Ez a repo a K-Monitor Bulletin Monitor (BM) projektjéhez fejlesztett backendet tartalmazza. Feladata a felíratkozások, esemény generátorok (scraperek),
+Ez a repo a K-Monitor Bulletin Monitor (BM) projektjéhez fejlesztett backendet tartalmazza. Feladata a feliratkozások, esemény generátorok (scraperek),
 események (keresések) kezelése.
 
 ## Célok
