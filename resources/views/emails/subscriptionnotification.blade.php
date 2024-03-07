@@ -25,7 +25,7 @@
                 </div>
                 @break
             @case(2)
-                <h3>Ez itt a Figyusz! adatbázis figyelő. A figyelt adatbázisba új adat érkezett.</h3>
+                <h3>Ez itt a <a href="https://figyusz.k-monitor.hu">Figyusz!</a> adatbázis figyelő. A figyelt adatbázisba új adat érkezett.</h3>
                 <div>
                     <span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span>
                 </div>
@@ -35,11 +35,11 @@
                 </div>
                 @break
         @endswitch
-        <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu">figyusz@k-monitor.hu</a> e-mail címen.</p>
+        <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu?subject=Hiba a Figyusz!-ban">figyusz@k-monitor.hu</a> e-mail címen.</p>
         <div>Üdvözlettel,</div>
         <div>K-Monitor</div>
         <p>
-            <a href="{!! $unsubscribeurl !!}">Leiratkozáshoz klikkelj ide.</a>
+            <a href="https://figyusz.k-monitor.hu">Új feliratkozás.</a> - <a href="{!! $unsubscribeurl !!}">Leiratkozás.</a>
         </p>
     </div>
     @include('shared.footer')
