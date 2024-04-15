@@ -11,7 +11,7 @@
         <h3>Szia!</h3>
         @switch($eventtype)
             @case(1)
-                <h3>Ez itt a Figyusz! adatbázis figyelő. Az általad megadott kulcsszóra találat érkezett.</h3>
+                <h3>Ez itt a <a href="https://figyusz.k-monitor.hu">Figyusz!</a> adatbázis figyelő. Az általad megadott kulcsszóra találat érkezett.</h3>
                 <div>
                     <div><span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span></div>
                     <div><span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span></div>
@@ -35,7 +35,8 @@
                 </div>
                 @break
         @endswitch
-        <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu?subject=Hiba a Figyusz!-ban">figyusz@k-monitor.hu</a> e-mail címen.</p>
+        <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu?subject=Hiba a Figyusz!-ban">figyusz@k-monitor.hu</a> e-mail címen.
+        </p>
         <div>Üdvözlettel,</div>
         <div>K-Monitor</div>
         <p>
