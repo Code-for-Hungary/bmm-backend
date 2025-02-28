@@ -55,6 +55,14 @@ class SubscriptionController extends Controller
             if ($request->string('parameter')->trim()->lower()->toString() !== 'null') {
                 $event->parameters = $request->string('parameter')->trim();
             }
+            $options = [];
+            foreach ($request->all() as $key => $value) {
+                if (strpos($key, 'option_') === 0) {
+                    $optionKey = substr($key, strlen('option_'));
+                    $options[$optionKey] = $value;
+                }
+            }
+            $event->selected_options = $options;
             $event->type = $eventtype;
             $event->active = true;
             $event->save();
