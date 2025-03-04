@@ -42,6 +42,7 @@ class EventgeneratorController extends Controller
         $eventgenerator->name = $request->string('name')->trim();
         $eventgenerator->description = $request->string('description')->trim();
         $eventgenerator->extrainfo = $request->string('extrainfo')->trim();
+        $eventgenerator->options_schema = $request->json('options_schema');
         $eventgenerator->active = true;
         $eventgenerator->save();
 

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id
  * @property string $eventgenerator_id
  * @property string|null $parameters
+ * @property object|null $selected_options
  * @property int $active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -39,6 +40,9 @@ class Event extends Model
 
     protected $keyType = 'string';
     protected $hidden = ['created_at', 'updated_at'];
+    protected $casts = [
+        'selected_options' => 'object',
+    ];
 
     public function subscriptions()
     {

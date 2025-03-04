@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Event> $event
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereDescription($value)
  * @property string|null $extrainfo
+ * @property array|null $options_schema
  * @method static \Illuminate\Database\Eloquent\Builder|Eventgenerator whereExtrainfo($value)
  * @mixin \Eloquent
  */
@@ -34,6 +35,9 @@ class Eventgenerator extends Model
 {
     use HasFactory;
     use HasUuids;
+    protected $casts = [
+        'options_schema' => 'array',
+    ];
 
     protected $keyType = 'string';
     protected $hidden = ['created_at', 'updated_at'];
