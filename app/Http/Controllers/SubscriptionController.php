@@ -56,12 +56,25 @@ class SubscriptionController extends Controller
                 $event->parameters = $request->string('parameter')->trim();
             }
             $options = [];
-            foreach ($request->all() as $key => $value) {
-                if (strpos($key, 'option_') === 0) {
-                    $optionKey = substr($key, strlen('option_'));
-                    $options[$optionKey] = $value;
+
+            $rawInput = file_get_contents('php://input');
+            $pairs = explode('&', $rawInput);
+            foreach ($pairs as $pair) {
+                if (!empty($pair)) {
+                    list($key, $value) = array_pad(explode('=', $pair, 2), 2, '');
+                    $key = urldecode($key);
+                    $value = urldecode($value);
+
+                    if (strpos($key, 'option_') === 0) {
+                        $optionKey = substr($key, strlen('option_'));
+                        if (!isset($options[$optionKey])) {
+                            $options[$optionKey] = [];
+                        }
+                        $options[$optionKey][] = $value;
+                    }
                 }
             }
+
             $event->selected_options = $options;
             $event->type = $eventtype;
             $event->active = true;
