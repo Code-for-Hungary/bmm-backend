@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SubscriptionConfirmationRequest;
+use App\Mail\SubscriptionManagement;
 use App\Models\Event;
 use App\Models\Eventgenerator;
 use App\Models\Subscription;
@@ -106,6 +107,23 @@ class SubscriptionController extends Controller
     {
         $subscription->active = false;
         $subscription->save();
+        return response()->json(['success' => true]);
+    }
+
+    public function manage(Request $request)
+    {
+        $email = $request->string('email')->trim();
+        
+        $subscriptions = Subscription::with('event.eventgenerator')
+            ->where('email', $email)
+            ->where('confirmed', true)
+            ->where('active', true)
+            ->get();
+
+        if ($subscriptions->count() > 0) {
+            Mail::to($email->toString())->send(new SubscriptionManagement($subscriptions, $email->toString()));
+        }
+
         return response()->json(['success' => true]);
     }
 }
