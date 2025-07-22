@@ -44,9 +44,13 @@ class EventgeneratorController extends Controller
         $eventgenerator->extrainfo = $request->string('extrainfo')->trim();
         $eventgenerator->options_schema = $request->json('options_schema');
         $eventgenerator->active = true;
+        
+        // Generate API key for this eventgenerator
+        $apiKey = $eventgenerator->generateApiKey();
         $eventgenerator->save();
 
         $resp['uuid'] = $eventgenerator->id;
+        $resp['api_key'] = $apiKey;
         $resp['success'] = true;
 
         return response()->json($resp);

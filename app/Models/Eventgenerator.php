@@ -35,6 +35,9 @@ class Eventgenerator extends Model
 {
     use HasFactory;
     use HasUuids;
+    
+    protected $fillable = ['name', 'description', 'extrainfo', 'options_schema', 'active', 'api_key'];
+    
     protected $casts = [
         'options_schema' => 'array',
     ];
@@ -45,5 +48,18 @@ class Eventgenerator extends Model
     public function event()
     {
         return $this->hasMany(Event::class);
+    }
+
+    /**
+     * Generate a unique API key for this eventgenerator
+     */
+    public function generateApiKey(): string
+    {
+        do {
+            $apiKey = 'eg_' . bin2hex(random_bytes(16));
+        } while (self::where('api_key', $apiKey)->exists());
+        
+        $this->api_key = $apiKey;
+        return $apiKey;
     }
 }

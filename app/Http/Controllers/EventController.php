@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Mail;
 class EventController extends Controller
 {
 
-    public function indexByGenerator(Eventgenerator $eventgenerator)
+    public function indexByGenerator(Request $request, Eventgenerator $eventgenerator)
     {
+        // If the route uses eventgenerator.api.key middleware, use the authenticated eventgenerator
+        if ($request->has('authenticated_eventgenerator')) {
+            $authenticatedEventgenerator = $request->get('authenticated_eventgenerator');
+            // Verify that the route parameter matches the authenticated eventgenerator
+            if ($eventgenerator->id !== $authenticatedEventgenerator->id) {
+                return response()->json(['error' => 'Eventgenerator mismatch'], 403);
+            }
+            $eventgenerator = $authenticatedEventgenerator;
+        }
+
         return EventResource::collection(
             $eventgenerator->event()
                 ->where('active', true)
@@ -24,10 +34,13 @@ class EventController extends Controller
 
     public function notify(Request $request, Event $event)
     {
-        $eventgenerator = Eventgenerator::find($request->get('uuid'));
-        if (!$eventgenerator) {
+        // Use the authenticated eventgenerator from middleware
+        if (!$request->has('authenticated_eventgenerator')) {
             return response('Unauthorized', 401);
         }
+        
+        $eventgenerator = $request->get('authenticated_eventgenerator');
+        
         if ($event->eventgenerator->id !== $eventgenerator->id) {
             return response('Bad Request', 400);
         }

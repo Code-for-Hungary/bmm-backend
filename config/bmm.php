@@ -29,4 +29,13 @@ return [
 
     'restricted_to_email' => env('BMM_RESTRICTED_TO_EMAIL'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | API Key for protected endpoints
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'api_key' => env('BMM_API_KEY'),
+
 ];

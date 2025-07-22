@@ -23,12 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/eventgenerators', [EventgeneratorController::class, 'index']);
 Route::get('/eventgenerators/{eventgenerator}', [EventgeneratorController::class, 'show']);
-Route::post('/eventgenerators', [EventgeneratorController::class, 'store']);
+Route::post('/eventgenerators', [EventgeneratorController::class, 'store'])->middleware('api.key');
 
 Route::post('/subscriptions', [SubscriptionController::class, 'store']);
 Route::post('/subscriptions/confirm/{subscription}', [SubscriptionController::class, 'confirm'])->name('confirmation');
 Route::post('/subscriptions/unsubscribe/{subscription}', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
 Route::post('/subscriptions/manage', [SubscriptionController::class, 'manage']);
 
-Route::get('/events/bygenerator/{eventgenerator}', [EventController::class, 'indexByGenerator']);
-Route::post('/events/notify/{event}', [EventController::class, 'notify']);
+Route::get('/events/bygenerator/{eventgenerator}', [EventController::class, 'indexByGenerator'])->middleware('eventgenerator.api.key');
+Route::post('/events/notify/{event}', [EventController::class, 'notify'])->middleware('eventgenerator.api.key');
