@@ -35,6 +35,9 @@
                 </div>
                 @break
         @endswitch
+
+        <p>Nemrég jelent meg a Figyusz Parlament figyelő, amivel feliratkozhatsz parlamenti irományokra is. <a href="https://figyusz.k-monitor.hu/">Próbáld ki!</a></p>
+
         <p>Hiba esetén vedd fel velünk a kapcsolatot a <a href="mailto:figyusz@k-monitor.hu?subject=Hiba a Figyusz!-ban">figyusz@k-monitor.hu</a> e-mail címen.
         </p>
         <div>Üdvözlettel,</div>
