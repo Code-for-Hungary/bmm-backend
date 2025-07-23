@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Eventgenerator
@@ -56,7 +57,7 @@ class Eventgenerator extends Model
     public function generateApiKey(): string
     {
         do {
-            $apiKey = 'eg_' . bin2hex(random_bytes(16));
+            $apiKey = 'eg_' . Str::random(40);
         } while (self::where('api_key', $apiKey)->exists());
         
         $this->api_key = $apiKey;
