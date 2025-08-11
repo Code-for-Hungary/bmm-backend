@@ -44,7 +44,7 @@ class Eventgenerator extends Model
     ];
 
     protected $keyType = 'string';
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'api_key'];
 
     public function event()
     {
