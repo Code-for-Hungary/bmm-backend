@@ -40,3 +40,7 @@ php artisan serve
 ## Telepítés
 
 Élesben érdemes egy webszerverrel futtatni
+
+## Kereső formátumok
+
+A keresés a scraper oldalon van implementálva, de gyakorlatilag mind azonos mődon működik. A keresőszavakra case-insensitive szó-szerinti egyezést nézünk, vagyis a szóközzel együtt keressük. Visszafele kompatibilitás miatt a `*` és `"` ignorálva vannak. A frontend egyszerre több kulcsszóra való feliratkozást is támogat.
