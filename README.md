@@ -10,13 +10,13 @@ események (keresések) kezelése.
 
 ## Kapcsolódó repok
 
-[Frontend](https://github.com/Code-for-Hungary/bmm-frontend)  
-[Minta scraper](https://github.com/Code-for-Hungary/bmm-protoscraper)
-[Magyar Közlöny scraper](https://github.com/Code-for-Hungary/bmm-kozlonyscraper)
-[MNV szerződés scraper](https://github.com/Code-for-Hungary/bmm-mnvcontractscraper)
-[Bírósági határozatok](https://github.com/Code-for-Hungary/bmm-birosagscraper)
-[Kormany.hu/dokumentumtar](https://github.com/Code-for-Hungary/bmm-kormanyscraper)
-[Parlamenti irományok scraper](https://github.com/Code-for-Hungary/bmm-parlamentscraper)
+- [Frontend](https://github.com/Code-for-Hungary/bmm-frontend)
+- [Minta scraper](https://github.com/Code-for-Hungary/bmm-protoscraper)
+- [Magyar Közlöny scraper](https://github.com/Code-for-Hungary/bmm-kozlonyscraper)
+- [MNV szerződés scraper](https://github.com/Code-for-Hungary/bmm-mnvcontractscraper)
+- [Bírósági határozatok](https://github.com/Code-for-Hungary/bmm-birosagscraper)
+- [Kormany.hu/dokumentumtar](https://github.com/Code-for-Hungary/bmm-kormanyscraper)
+- [Parlamenti irományok scraper](https://github.com/Code-for-Hungary/bmm-parlamentscraper)
 
 ## Futtatás fejlesztéshez
 
