@@ -43,4 +43,6 @@ php artisan serve
 
 ## Kereső formátumok
 
-A keresés a scraper oldalon van implementálva, de gyakorlatilag mind azonos mődon működik. A keresőszavakra case-insensitive szó-szerinti egyezést nézünk, vagyis a szóközzel együtt keressük. Visszafele kompatibilitás miatt a `*` és `"` ignorálva vannak. A frontend egyszerre több kulcsszóra való feliratkozást is támogat.
+A keresés a scraper oldalon van implementálva, de gyakorlatilag mind azonos módon működik. A keresőszavakra case-insensitive szó-szerinti egyezést nézünk, vagyis a szóközzel együtt keressük. Visszafele kompatibilitás miatt a `*` és `"` ignorálva vannak. A frontend egyszerre több kulcsszóra való feliratkozást és több feliratkozást is támogat. Feliratkozásonként bármelyik kulcsszó találata értesítést eredményez.
+
+A kulcsszavakat feliratkozáson belül `,`-vel választjuk el, amit a scraper parsol.
