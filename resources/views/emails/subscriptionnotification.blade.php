@@ -11,10 +11,10 @@
         <h3>Szia!</h3>
         @switch($eventtype)
             @case(1)
-                <h3>Ez itt a <a href="https://figyusz.k-monitor.hu">Figyusz!</a> adatbázis figyelő. Az általad megadott kulcsszóra találat érkezett.</h3>
+                <h3>Ez itt a <a href="https://figyusz.k-monitor.hu">Figyusz!</a> adatbázis figyelő. Feliratkozásodra találat érkezett.</h3>
                 <div>
                     <div><span class="bmm-label">A találat helye: </span><span class="bmm-data">"{{ $eventgenerator }}"</span></div>
-                    <div><span class="bmm-label">Kulcsszó: </span><span class="bmm-data">"{{ $parameter }}"</span></div>
+                    <div><span class="bmm-label">Kulcsszó (vagy kulcsszavak): </span><span class="bmm-data">"{{ $parameter }}"</span></div>
                     @if($extrainfo)
                         <div><span class="bmm-label">{!! $extrainfo !!}</span></div>
                     @endif
