@@ -40,9 +40,9 @@ php artisan serve
 
 ## Telepítés (Docker)
 
-Élesben Dockerrel fut: egy `app` konténer (PHP 8.5 + Apache) és egy `db` konténer (MariaDB).
+Élesben Dockerrel fut egy `app` konténer (PHP 8.5 + Apache), ami a szerver saját MariaDB-jéhez csatlakozik a `/run/mysqld` socketen keresztül. Podmannal ugyanezek a parancsok `podman compose`-zal futnak.
 
-1. `.env` kitöltése a `.env.example` alapján. A `DB_HOST`/`DB_PORT` értékét a compose felülírja, a `DB_ROOT_PASSWORD`-öt viszont meg kell adni.
+1. `.env` kitöltése a `.env.example` alapján. A `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` a szerver MariaDB-jének adatai; a `DB_HOST`/`DB_PORT` nem számít, mert a compose a socketet állítja be.
 2. Indítás:
    ```
    docker compose up -d --build
@@ -61,11 +61,6 @@ docker compose up -d
 A `.env` módosítása után `docker compose up -d` kell, a `docker compose restart` nem olvassa be újra.
 
 Logok: `docker compose exec app tail -f storage/logs/laravel.log`
-
-Adatbázis mentés:
-```
-docker compose exec -T db sh -c 'MYSQL_PWD="$MARIADB_PASSWORD" mariadb-dump -u"$MARIADB_USER" --single-transaction "$MARIADB_DATABASE"' | gzip > backup.sql.gz
-```
 
 ## Kereső formátumok
 
