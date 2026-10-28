@@ -2,6 +2,10 @@ services:
   app:
     build: .
     restart: always
+    # Podman-specific (remove for Docker). With the default bridge network, podman has to
+    # kill a shared pasta process on teardown, which the host's AppArmor policy blocks;
+    # a per-container pasta exits on its own.
+    network_mode: pasta
     env_file: .env
     environment:
       # Use the host's MariaDB through its unix socket; DB_HOST/DB_PORT are then ignored

@@ -40,7 +40,7 @@ php artisan serve
 
 ## Telepítés (Docker)
 
-Élesben Dockerrel fut egy `app` konténer (PHP 8.5 + Apache), ami a szerver saját MariaDB-jéhez csatlakozik a `/run/mysqld` socketen keresztül. Podmannal ugyanezek a parancsok `podman compose`-zal futnak.
+Élesben Dockerrel fut egy `app` konténer (PHP 8.5 + Apache), ami a szerver saját MariaDB-jéhez csatlakozik a `/run/mysqld` socketen keresztül. A compose fájl podmanra van beállítva (`podman compose ...`, ugyanazokkal a parancsokkal); Dockerrel a `network_mode: pasta` sort törölni kell.
 
 1. `.env` kitöltése a `.env.example` alapján. A `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` a szerver MariaDB-jének adatai; a `DB_HOST`/`DB_PORT` nem számít, mert a compose a socketet állítja be.
 2. Indítás:
