@@ -1,11 +1,10 @@
-FROM docker.io/library/php:8.3-apache
+FROM docker.io/library/php:8.5-apache
 
-# unzip is used by composer to extract packages
+# unzip is used by composer to extract packages. OPcache is built into PHP 8.5.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends unzip \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-enable opcache \
     && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Serve public/ on 8080, so Apache can run as www-data without binding a privileged port

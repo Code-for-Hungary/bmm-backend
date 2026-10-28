@@ -31,7 +31,7 @@ Függőségek telepítése
 php composer.phar install
 ```
 
-A `composer.lock` a Docker image PHP verziójához (8.3) van rögzítve a `composer.json` `config.platform` beállításával, így `composer update` után is kompatibilis marad.
+A `composer.lock` a Docker image PHP verziójához (8.5) van rögzítve a `composer.json` `config.platform` beállításával, így `composer update` után is kompatibilis marad.
 
 Futtatás:
 ```
@@ -40,7 +40,7 @@ php artisan serve
 
 ## Telepítés (Docker)
 
-Élesben Dockerrel fut: egy `app` konténer (PHP 8.3 + Apache) és egy `db` konténer (MariaDB).
+Élesben Dockerrel fut: egy `app` konténer (PHP 8.5 + Apache) és egy `db` konténer (MariaDB).
 
 1. `.env` kitöltése a `.env.example` alapján. A `DB_HOST`/`DB_PORT` értékét a compose felülírja, a `DB_ROOT_PASSWORD`-öt viszont meg kell adni.
 2. Indítás:
