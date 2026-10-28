@@ -10,9 +10,17 @@ class TrustProxies extends Middleware
     /**
      * The trusted proxies for this application.
      *
+     * Private ranges cover a reverse proxy on the same host or in Docker. Without
+     * this, every client shares the proxy's IP and therefore one API rate limit.
+     *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = [
+        '127.0.0.1',
+        '10.0.0.0/8',
+        '172.16.0.0/12',
+        '192.168.0.0/16',
+    ];
 
     /**
      * The headers that should be used to detect proxies.

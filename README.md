@@ -37,9 +37,34 @@ Futtatás:
 php artisan serve
 ```
 
-## Telepítés
+## Telepítés (Docker)
 
-Élesben érdemes egy webszerverrel futtatni
+Élesben Dockerrel fut: egy `app` konténer (PHP 8.3 + Apache) és egy `db` konténer (MariaDB).
+
+1. `.env` kitöltése a `.env.example` alapján. A `DB_HOST`/`DB_PORT` értékét a compose felülírja, a `DB_ROOT_PASSWORD`-öt viszont meg kell adni.
+2. Indítás:
+   ```
+   docker compose up -d --build
+   docker compose exec app php artisan migrate --force
+   ```
+3. Az alkalmazás a `127.0.0.1:8080` címen érhető el (az `APP_PORT` változóval állítható). Kívülről egy reverse proxy (nginx/Apache, TLS) továbbítja ide a kéréseket.
+
+Frissítés:
+```
+git pull
+docker compose build
+docker compose run --rm app php artisan migrate --force
+docker compose up -d
+```
+
+A `.env` módosítása után `docker compose up -d` kell, a `docker compose restart` nem olvassa be újra.
+
+Logok: `docker compose exec app tail -f storage/logs/laravel.log`
+
+Adatbázis mentés:
+```
+docker compose exec -T db sh -c 'MYSQL_PWD="$MARIADB_PASSWORD" mariadb-dump -u"$MARIADB_USER" --single-transaction "$MARIADB_DATABASE"' | gzip > backup.sql.gz
+```
 
 ## Kereső formátumok
 
