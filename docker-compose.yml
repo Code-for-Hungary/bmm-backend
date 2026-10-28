@@ -17,10 +17,11 @@ services:
         condition: service_healthy
 
   db:
-    image: docker.io/library/mariadb:11.4
+    build: docker/mariadb
     restart: always
-    # Matches the collation Laravel uses for its tables
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    # basedir would otherwise follow the relocated binary (see docker/mariadb/Dockerfile);
+    # the collation matches the one Laravel uses for its tables
+    command: --basedir=/usr --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MARIADB_DATABASE: ${DB_DATABASE}
       MARIADB_USER: ${DB_USERNAME}
