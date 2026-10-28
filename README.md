@@ -28,9 +28,10 @@ Előfeltétel:
 
 Függőségek telepítése
 ```
-php composer.phar update
 php composer.phar install
 ```
+
+A `composer.lock` a Docker image PHP verziójához (8.3) van rögzítve a `composer.json` `config.platform` beállításával, így `composer update` után is kompatibilis marad.
 
 Futtatás:
 ```
